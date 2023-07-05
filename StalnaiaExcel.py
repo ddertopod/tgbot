@@ -1,7 +1,6 @@
 import pandas as pd
 import openpyxl
 from openpyxl import Workbook , load_workbook
-import csv
 import Poiskdata
 wb = load_workbook("Svodka.xlsx", data_only=True)
 sh = wb["Daily"]
@@ -117,28 +116,4 @@ CH_W10 = round(cell95.value, 2)
 CH_W_PR10 = round(cell96.value, 2)
 CH_M10 = round(cell98.value, 2)
 CH_M_PR10 = round(cell99.value, 2)
-MYDATA1 = [['Дата','Материал', 'Цена', 'Изменение за день', 'Изменение за день(процент)', 'Изменение за неделю', 'Изменение за неделю(процент)', 'Изменение за месяц', 'Изменение за месяц(процент)'],
-          [DATA, cellFE, str(PRICE1) + " USD/т", f"{CH_DAY1:+}"+ " USD/т", f"{CH_DAY_PR1:+}" + " %", f"{CH_W1:+}"+ " USD/т", f"{CH_W_PR1:+}" + " %", f"{CH_M1:+}"+ " USD/т", f"{CH_M_PR1:+}" + " %"]]
-MYDATA2 = [["-", cellUg, str(PRICE2) + " USD/т", f"{CH_DAY2:+}"+ " USD/т", f"{CH_DAY_PR2:+}" + " %", f"{CH_W2:+}"+ " USD/т", f"{CH_W_PR2:+}" + " %", f"{CH_M2:+}"+ " USD/т", f"{CH_M_PR2:+}" + " %"]]
-MYDATA3 = [["-", cellKo, str(PRICE3) + " USD/т", f"{CH_DAY3:+}"+ " USD/т", f"{CH_DAY_PR3:+}" + " %", f"{CH_W3:+}"+ " USD/т", f"{CH_W_PR3:+}" + " %", f"{CH_M3:+}"+ " USD/т", f"{CH_M_PR3:+}" + " %"]]
-MYDATA4 = [["-", cellLo, str(PRICE4) + " USD/т", f"{CH_DAY4:+}"+ " USD/т", f"{CH_DAY_PR4:+}" + " %", f"{CH_W4:+}"+ " USD/т", f"{CH_W_PR4:+}" + " %", f"{CH_M4:+}"+ " USD/т", f"{CH_M_PR4:+}" + " %"]]
-MYDATA5 = [["-", cellRu, str(PRICE5) + " руб/т", f"{CH_DAY5:+}"+ " руб/т", f"{CH_DAY_PR5:+}" + " %", f"{CH_W5:+}"+ " руб/т", f"{CH_W_PR5:+}" + " %", f"{CH_M5:+}"+ " руб/т", f"{CH_M_PR5:+}" + " %"]]
-MYDATA6 = [["-", cellIn, str(PRICE6) + " USD/т", f"{CH_DAY6:+}"+ " USD/т", f"{CH_DAY_PR6:+}" + " %", f"{CH_W6:+}"+ " USD/т", f"{CH_W_PR6:+}" + " %", f"{CH_M6:+}"+ " USD/т", f"{CH_M_PR6:+}" + " %"]]
-MYDATA7 = [["-", cellCh, str(PRICE7) + " USD/т", f"{CH_DAY7:+}"+ " USD/т", f"{CH_DAY_PR7:+}" + " %", f"{CH_W7:+}"+ " USD/т", f"{CH_W_PR7:+}" + " %", f"{CH_M7:+}"+ " USD/т", f"{CH_M_PR7:+}" + " %"]]
-MYDATA8 = [["-", cellFob, str(PRICE8) + " руб/т", f"{CH_DAY8:+}"+ " руб/т", f"{CH_DAY_PR8:+}" + " %", f"{CH_W8:+}"+ " руб/т", f"{CH_W_PR8:+}" + " %", f"{CH_M8:+}"+ " руб/т", f"{CH_M_PR8:+}" + " %"]]
-MYDATA9 = [["-", cellFR, str(PRICE9) + " USD/т", f"{CH_DAY9:+}"+ " USD/т", f"{CH_DAY_PR9:+}" + " %", f"{CH_W9:+}"+ " USD/т", f"{CH_W_PR9:+}" + " %", f"{CH_M9:+}"+ " USD/т", f"{CH_M_PR9:+}" + " %"]]
-MYDATA10 = [["-", cellFAC, str(PRICE10) + " руб/т", f"{CH_DAY10:+}"+ " руб/т", f"{CH_DAY_PR10:+}" + " %", f"{CH_W10:+}"+ " руб/т", f"{CH_W_PR10:+}" + " %", f"{CH_M10:+}"+ " руб/т", f"{CH_M_PR10:+}" + " %"]]
-MYFILE1 = open('slovarStal.csv', 'w', encoding = 'utf-8' )
-with MYFILE1:
-    writer = csv.writer(MYFILE1) 
-    writer.writerows(MYDATA1) 
-    writer.writerows(MYDATA2) 
-    writer.writerows(MYDATA3) 
-    writer.writerows(MYDATA4)
-    writer.writerows(MYDATA5) 
-    writer.writerows(MYDATA6) 
-    writer.writerows(MYDATA7)
-    writer.writerows(MYDATA8)
-    writer.writerows(MYDATA9)
-    writer.writerows(MYDATA10)
-print("Записано")
+print("Найдено")

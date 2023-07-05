@@ -103,8 +103,8 @@ def callback_inline1(call: CallbackQuery):
     with open("datetime.txt", "w") as file:
         file.write(global_date.strftime("%d.%m.%Y"))
     import Poiskdata
-    import ConvertSur
-    document = open('Sur.png', 'rb')
+    import CONVsur
+    document = open('page1.png', 'rb')
     bot.send_document(chat_id = call.from_user.id, document = document)
 DATESur = global_date
 global_date = None
@@ -136,8 +136,8 @@ def callback_inline2(call: CallbackQuery):
     with open("datetime.txt", "w") as file:
         file.write(global_date.strftime("%d.%m.%Y"))
     import Poiskdata
-    import ConvertStal
-    document = open('Stal.png', 'rb')
+    import CONVstal
+    document = open('page2.png', 'rb')
     bot.send_document(chat_id = call.from_user.id, document = document)
 DATEStal = global_date
 global_date = None
@@ -169,8 +169,8 @@ def callback_inline3(call: CallbackQuery):
     with open("datetime.txt", "w") as file:
         file.write(global_date.strftime("%d.%m.%Y"))
     import Poiskdata
-    import ConvertFer1
-    document = open('Fer1.png', 'rb')
+    import CONVfer1
+    document = open('page3.png', 'rb')
     bot.send_document(chat_id = call.from_user.id, document = document)
 DATEFER1 = global_date
 global_date = None
@@ -202,8 +202,8 @@ def callback_inline4(call: CallbackQuery):
     with open("datetime.txt", "w") as file:
         file.write(global_date.strftime("%d.%m.%Y"))
     import Poiskdata
-    import ConvertFer2
-    document = open('Fer2.png', 'rb')
+    import CONVfer2
+    document = open('page4.png', 'rb')
     bot.send_document(chat_id = call.from_user.id, document = document)
 DATEFER2 = global_date
 @bot.message_handler(commands=['data'])

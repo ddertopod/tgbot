@@ -292,19 +292,7 @@ for i in [3, 4, 5, 6, 7, 9, 10, 11, 13]:
         cell3.fill.solid()
         cell3.fill.fore_color.rgb = RGBColor(255, 230, 231)
 DAY0 = Ferro2Excel.PRICE1
-DAY1 = Ferro2Excel.CH_DAY1
-DAY2= Ferro2Excel.CH_DAY_PR1
-WEEK1 = Ferro2Excel.CH_W1
-WEEK2= Ferro2Excel.CH_W_PR1
-MONTH1 = Ferro2Excel.CH_M1
-MONTH2 = Ferro2Excel.CH_M_PR1
 DDD0 = str (DAY0)
-DDD1 = f"{DAY1:+}"
-DDD2 = "(" + str(abs(DAY2)) + "%)"
-WWW1 = f"{WEEK1:+}"
-WWW2 = "(" + str(abs(WEEK2)) + "%)"
-MMM1 = f"{MONTH1:+}"
-MMM2 = "(" + str(abs(MONTH2)) + "%)"
 cell4 = table.cell(3, 1)
 cell4.text_frame.clear()
 cell4.text_frame.text = ""
@@ -340,12 +328,7 @@ else:
     font.bold = True
     font.color.rgb = RGBColor(77, 77, 77)
 DAY0 = Ferro2Excel.PRICE6
-DAY1 = Ferro2Excel.CH_DAY6
-DAY2= Ferro2Excel.CH_DAY_PR6
-WEEK1 = Ferro2Excel.CH_W6
-WEEK2= Ferro2Excel.CH_W_PR6
-MONTH1 = Ferro2Excel.CH_M6
-MONTH2 = Ferro2Excel.CH_M_PR6
+DDD0 = str (DAY0)
 cell5 = table.cell(9, 1)
 cell5.text_frame.clear()
 cell5.text_frame.text = ""
@@ -381,12 +364,7 @@ else:
     font.bold = True
     font.color.rgb = RGBColor(77, 77, 77)
 DAY0 = Ferro2Excel.PRICE9
-DAY1 = Ferro2Excel.CH_DAY9
-DAY2= Ferro2Excel.CH_DAY_PR9
-WEEK1 = Ferro2Excel.CH_W9
-WEEK2= Ferro2Excel.CH_W_PR9
-MONTH1 = Ferro2Excel.CH_M9
-MONTH2 = Ferro2Excel.CH_M_PR9
+DDD0 = str (DAY0)
 cell6 = table.cell(13, 1)
 cell6.text_frame.clear()
 cell6.text_frame.text = ""

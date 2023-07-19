@@ -300,19 +300,7 @@ for i in [3, 4, 6, 7, 8, 10, 11, 12, 14, 15]:
         cell3.fill.solid()
         cell3.fill.fore_color.rgb = RGBColor(255, 230, 231)
 DAY0 = StalnaiaExcel.PRICE5
-DAY1 = StalnaiaExcel.CH_DAY5
-DAY2= StalnaiaExcel.CH_DAY_PR5
-WEEK1 = StalnaiaExcel.CH_W5
-WEEK2= StalnaiaExcel.CH_W_PR5
-MONTH1 = StalnaiaExcel.CH_M5
-MONTH2 = StalnaiaExcel.CH_M_PR5
 DDD0 = str (DAY0)
-DDD1 = f"{DAY1:+}"
-DDD2 = "(" + str(abs(DAY2)) + "%)"
-WWW1 = f"{WEEK1:+}"
-WWW2 = "(" + str(abs(WEEK2)) + "%)"
-MMM1 = f"{MONTH1:+}"
-MMM2 = "(" + str(abs(MONTH2)) + "%)"
 cell4 = table.cell(8, 1)
 cell4.text_frame.clear()
 cell4.text_frame.text = ""
@@ -348,12 +336,7 @@ else:
     font.bold = True
     font.color.rgb = RGBColor(77, 77, 77)
 DAY0 = StalnaiaExcel.PRICE8
-DAY1 = StalnaiaExcel.CH_DAY8
-DAY2= StalnaiaExcel.CH_DAY_PR8
-WEEK1 = StalnaiaExcel.CH_W8
-WEEK2= StalnaiaExcel.CH_W_PR8
-MONTH1 = StalnaiaExcel.CH_M8
-MONTH2 = StalnaiaExcel.CH_M_PR8
+DDD0 = str (DAY0)
 cell5 = table.cell(12, 1)
 cell5.text_frame.clear()
 cell5.text_frame.text = ""
@@ -389,12 +372,7 @@ else:
     font.bold = True
     font.color.rgb = RGBColor(77, 77, 77)
 DAY0 = StalnaiaExcel.PRICE10
-DAY1 = StalnaiaExcel.CH_DAY10
-DAY2= StalnaiaExcel.CH_DAY_PR10
-WEEK1 = StalnaiaExcel.CH_W10
-WEEK2= StalnaiaExcel.CH_W_PR10
-MONTH1 = StalnaiaExcel.CH_M10
-MONTH2 = StalnaiaExcel.CH_M_PR10
+DDD0 = str (DAY0)
 cell6 = table.cell(15, 1)
 cell6.text_frame.clear()
 cell6.text_frame.text = ""

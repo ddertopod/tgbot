@@ -7,6 +7,8 @@ from datetime import datetime
 with open("datetime.txt", "r") as file:
     saved_datetime = file.read()
 saved_datetime = datetime.strptime(saved_datetime, '%d.%m.%Y')
+print(saved_datetime)
+print("выше")
 def find_datetime_row(file_path, search_value):
     wb = load_workbook(file_path)
     sheet = wb.active

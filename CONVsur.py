@@ -284,19 +284,7 @@ for i in [3, 5, 7, 9, 10, 12, 14, 15]:
         cell3.fill.solid()
         cell3.fill.fore_color.rgb = RGBColor(255, 230, 231)
 DAY0 = SurevyeExcel.PRICE5
-DAY1 = SurevyeExcel.CH_DAY5
-DAY2= SurevyeExcel.CH_DAY_PR5
-WEEK1 = SurevyeExcel.CH_W5
-WEEK2= SurevyeExcel.CH_W_PR5
-MONTH1 = SurevyeExcel.CH_M5
-MONTH2 = SurevyeExcel.CH_M_PR5
 DDD0 = str (DAY0)
-DDD1 = f"{DAY1:+}"
-DDD2 = "(" + str(abs(DAY2)) + "%)"
-WWW1 = f"{WEEK1:+}"
-WWW2 = "(" + str(abs(WEEK2)) + "%)"
-MMM1 = f"{MONTH1:+}"
-MMM2 = "(" + str(abs(MONTH2)) + "%)"
 cell4 = table.cell(10, 1)
 cell4.text_frame.clear()
 cell4.text_frame.text = ""

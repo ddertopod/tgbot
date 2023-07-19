@@ -6,10 +6,10 @@ from pptx import Presentation
 from pptx.util import Inches, Cm, Pt
 from pptx.enum.text import PP_ALIGN, MSO_ANCHOR
 from pptx.dml.color import RGBColor
-import SurevyeExcel
+import GetSur
 presentation = Presentation('Prices.pptx')
 slide = presentation.slides[0]
-Data = SurevyeExcel.DATA
+Data = GetSur.saved_datetime
 MD = Data.strftime('%d') + "." + Data.strftime('%m')
 Year = Data.strftime('%Y')
 print(MD)
@@ -57,69 +57,69 @@ MONTH1 = 0
 MONTH2 = 0
 for i in [3, 5, 7, 9, 10, 12, 14, 15]:
     if i == 3:
-        DAY0 = SurevyeExcel.PRICE1
-        DAY1 = SurevyeExcel.CH_DAY1
-        DAY2= SurevyeExcel.CH_DAY_PR1
-        WEEK1 = SurevyeExcel.CH_W1
-        WEEK2= SurevyeExcel.CH_W_PR1
-        MONTH1 = SurevyeExcel.CH_M1
-        MONTH2 = SurevyeExcel.CH_M_PR1
+        DAY0 = GetSur.PRICE1
+        DAY1 = GetSur.CH_DAY1
+        DAY2= GetSur.CH_DAY_PR1
+        WEEK1 = GetSur.CH_W1
+        WEEK2= GetSur.CH_W_PR1
+        MONTH1 = GetSur.CH_M1
+        MONTH2 = GetSur.CH_M_PR1
     elif i == 5:
-        DAY0 = SurevyeExcel.PRICE2
-        DAY1 = SurevyeExcel.CH_DAY2
-        DAY2= SurevyeExcel.CH_DAY_PR2
-        WEEK1 = SurevyeExcel.CH_W2
-        WEEK2= SurevyeExcel.CH_W_PR2
-        MONTH1 = SurevyeExcel.CH_M2
-        MONTH2 = SurevyeExcel.CH_M_PR2
+        DAY0 = GetSur.PRICE2
+        DAY1 = GetSur.CH_DAY2
+        DAY2= GetSur.CH_DAY_PR2
+        WEEK1 = GetSur.CH_W2
+        WEEK2= GetSur.CH_W_PR2
+        MONTH1 = GetSur.CH_M2
+        MONTH2 = GetSur.CH_M_PR2
     elif i == 7:
-        DAY0 = SurevyeExcel.PRICE3
-        DAY1 = SurevyeExcel.CH_DAY3
-        DAY2= SurevyeExcel.CH_DAY_PR3
-        WEEK1 = SurevyeExcel.CH_W3
-        WEEK2= SurevyeExcel.CH_W_PR3
-        MONTH1 = SurevyeExcel.CH_M3
-        MONTH2 = SurevyeExcel.CH_M_PR3
+        DAY0 = GetSur.PRICE3
+        DAY1 = GetSur.CH_DAY3
+        DAY2= GetSur.CH_DAY_PR3
+        WEEK1 = GetSur.CH_W3
+        WEEK2= GetSur.CH_W_PR3
+        MONTH1 = GetSur.CH_M3
+        MONTH2 = GetSur.CH_M_PR3
     elif i == 9:
-        DAY0 = SurevyeExcel.PRICE4
-        DAY1 = SurevyeExcel.CH_DAY4
-        DAY2= SurevyeExcel.CH_DAY_PR4
-        WEEK1 = SurevyeExcel.CH_W4
-        WEEK2= SurevyeExcel.CH_W_PR4
-        MONTH1 = SurevyeExcel.CH_M4
-        MONTH2 = SurevyeExcel.CH_M_PR4
+        DAY0 = GetSur.PRICE4
+        DAY1 = GetSur.CH_DAY4
+        DAY2= GetSur.CH_DAY_PR4
+        WEEK1 = GetSur.CH_W4
+        WEEK2= GetSur.CH_W_PR4
+        MONTH1 = GetSur.CH_M4
+        MONTH2 = GetSur.CH_M_PR4
     elif i == 10:
-        DAY0 = SurevyeExcel.PRICE5
-        DAY1 = SurevyeExcel.CH_DAY5
-        DAY2= SurevyeExcel.CH_DAY_PR5
-        WEEK1 = SurevyeExcel.CH_W5
-        WEEK2= SurevyeExcel.CH_W_PR5
-        MONTH1 = SurevyeExcel.CH_M5
-        MONTH2 = SurevyeExcel.CH_M_PR5
+        DAY0 = GetSur.PRICE5
+        DAY1 = GetSur.CH_DAY5
+        DAY2= GetSur.CH_DAY_PR5
+        WEEK1 = GetSur.CH_W5
+        WEEK2= GetSur.CH_W_PR5
+        MONTH1 = GetSur.CH_M5
+        MONTH2 = GetSur.CH_M_PR5
     elif i == 12:
-        DAY0 = SurevyeExcel.PRICE6
-        DAY1 = SurevyeExcel.CH_DAY6
-        DAY2= SurevyeExcel.CH_DAY_PR6
-        WEEK1 = SurevyeExcel.CH_W6
-        WEEK2= SurevyeExcel.CH_W_PR6
-        MONTH1 = SurevyeExcel.CH_M6
-        MONTH2 = SurevyeExcel.CH_M_PR6
+        DAY0 = GetSur.PRICE6
+        DAY1 = GetSur.CH_DAY6
+        DAY2= GetSur.CH_DAY_PR6
+        WEEK1 = GetSur.CH_W6
+        WEEK2= GetSur.CH_W_PR6
+        MONTH1 = GetSur.CH_M6
+        MONTH2 = GetSur.CH_M_PR6
     elif i == 14:
-        DAY0 = SurevyeExcel.PRICE7
-        DAY1 = SurevyeExcel.CH_DAY7
-        DAY2= SurevyeExcel.CH_DAY_PR7
-        WEEK1 = SurevyeExcel.CH_W7
-        WEEK2= SurevyeExcel.CH_W_PR7
-        MONTH1 = SurevyeExcel.CH_M7
-        MONTH2 = SurevyeExcel.CH_M_PR7
+        DAY0 = GetSur.PRICE7
+        DAY1 = GetSur.CH_DAY7
+        DAY2= GetSur.CH_DAY_PR7
+        WEEK1 = GetSur.CH_W7
+        WEEK2= GetSur.CH_W_PR7
+        MONTH1 = GetSur.CH_M7
+        MONTH2 = GetSur.CH_M_PR7
     elif i == 15:
-        DAY0 = SurevyeExcel.PRICE8
-        DAY1 = SurevyeExcel.CH_DAY8
-        DAY2= SurevyeExcel.CH_DAY_PR8
-        WEEK1 = SurevyeExcel.CH_W8
-        WEEK2= SurevyeExcel.CH_W_PR8
-        MONTH1 = SurevyeExcel.CH_M8
-        MONTH2 = SurevyeExcel.CH_M_PR8
+        DAY0 = GetSur.PRICE8
+        DAY1 = GetSur.CH_DAY8
+        DAY2= GetSur.CH_DAY_PR8
+        WEEK1 = GetSur.CH_W8
+        WEEK2= GetSur.CH_W_PR8
+        MONTH1 = GetSur.CH_M8
+        MONTH2 = GetSur.CH_M_PR8
     else:
         print("ERROR")
     DDD0 = str (DAY0)
@@ -283,20 +283,8 @@ for i in [3, 5, 7, 9, 10, 12, 14, 15]:
     else:
         cell3.fill.solid()
         cell3.fill.fore_color.rgb = RGBColor(255, 230, 231)
-DAY0 = SurevyeExcel.PRICE5
-DAY1 = SurevyeExcel.CH_DAY5
-DAY2= SurevyeExcel.CH_DAY_PR5
-WEEK1 = SurevyeExcel.CH_W5
-WEEK2= SurevyeExcel.CH_W_PR5
-MONTH1 = SurevyeExcel.CH_M5
-MONTH2 = SurevyeExcel.CH_M_PR5
+DAY0 = GetSur.PRICE5
 DDD0 = str (DAY0)
-DDD1 = f"{DAY1:+}"
-DDD2 = "(" + str(abs(DAY2)) + "%)"
-WWW1 = f"{WEEK1:+}"
-WWW2 = "(" + str(abs(WEEK2)) + "%)"
-MMM1 = f"{MONTH1:+}"
-MMM2 = "(" + str(abs(MONTH2)) + "%)"
 cell4 = table.cell(10, 1)
 cell4.text_frame.clear()
 cell4.text_frame.text = ""

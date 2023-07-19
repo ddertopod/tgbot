@@ -8,6 +8,7 @@ from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
 from telebot import types
 from datetime import datetime
 import os
+import subprocess
 from dotenv import load_dotenv
 load_dotenv()
 API_TOKEN = os.getenv('SUPERIMPORTANT')
@@ -19,6 +20,7 @@ calendar_1_callback = CallbackData("calendar_1", "action", "year", "month", "day
 calendar_2_callback = CallbackData("calendar_2", "action", "year", "month", "day")
 calendar_3_callback = CallbackData("calendar_3", "action", "year", "month", "day")
 calendar_4_callback = CallbackData("calendar_4", "action", "year", "month", "day")
+calendar_5_callback = CallbackData("calendar_5", "action", "year", "month", "day")
 @bot.message_handler(commands=['start'])
 def start_message(message):
     markup=types.ReplyKeyboardMarkup(resize_keyboard=True)
@@ -26,7 +28,8 @@ def start_message(message):
     item2=types.KeyboardButton("Стальная продукция")
     item3=types.KeyboardButton("Ферросплавы (Кремний и марганец)")
     item4=types.KeyboardButton("Ферросплавы (Хром)")
-    markup.add(item1, item2, item3, item4)
+    item5=types.KeyboardButton("Все отчеты")
+    markup.add(item1, item2, item3, item4, item5)
     bot.send_message(message.chat.id,"Привет! Для получения отчета выбери тип отчета из списка ниже: ", reply_markup=markup)
 @bot.message_handler(content_types='text')
 def message_reply(message):
@@ -74,13 +77,25 @@ def message_reply(message):
                 month=now.month,
             ),
         )  
+    elif message.text=="Все отчеты":
+        now = datetime.now()
+        bot.send_message(
+            message.chat.id,
+            "Выбор даты отчета",
+            reply_markup=calendar.create_calendar(
+                name=calendar_5_callback.prefix,
+                year=now.year,
+                month=now.month,
+            ),
+        )  
     elif message.text=="Возврат в главное меню":
         markup=types.ReplyKeyboardMarkup(resize_keyboard=True)
         item1=types.KeyboardButton("Сырьевые материалы")
         item2=types.KeyboardButton("Стальная продукция")
         item3=types.KeyboardButton("Ферросплавы (Кремний и марганец)")
         item4=types.KeyboardButton("Ферросплавы (Хром)")
-        markup.add(item1, item2, item3, item4)
+        item5=types.KeyboardButton("Все отчеты")
+        markup.add(item1, item2, item3, item4, item5)
         bot.send_message(message.chat.id,"Привет! Для получения отчета выбери тип отчета из списка ниже: ", reply_markup=markup) 
 global_date = None
 @bot.callback_query_handler(
@@ -114,10 +129,9 @@ def callback_inline1(call: CallbackQuery):
     print(f"date1: {global_date}")
     with open("datetime.txt", "w") as file:
         file.write(global_date.strftime("%d.%m.%Y"))
-    import Poiskdata
-    import CONVsur
+    os.system("python CONVsurv2.py")
     document = open('page1.png', 'rb')
-    bot.send_document(chat_id = call.from_user.id, document = document)
+    bot.send_photo(chat_id = call.from_user.id, photo = document)
     markup=types.ReplyKeyboardMarkup(resize_keyboard=True)
     item1=types.KeyboardButton("Возврат в главное меню")
     markup.add(item1)
@@ -155,10 +169,9 @@ def callback_inline2(call: CallbackQuery):
     print(f"date2: {global_date}")
     with open("datetime.txt", "w") as file:
         file.write(global_date.strftime("%d.%m.%Y"))
-    import Poiskdata
-    import CONVstal
+    os.system("python CONVstalv2.py")
     document = open('page2.png', 'rb')
-    bot.send_document(chat_id = call.from_user.id, document = document)
+    bot.send_photo(chat_id = call.from_user.id, photo = document)
     markup=types.ReplyKeyboardMarkup(resize_keyboard=True)
     item1=types.KeyboardButton("Возврат в главное меню")
     markup.add(item1)
@@ -196,10 +209,9 @@ def callback_inline3(call: CallbackQuery):
     print(f"date3: {global_date}")
     with open("datetime.txt", "w") as file:
         file.write(global_date.strftime("%d.%m.%Y"))
-    import Poiskdata
-    import CONVfer1
+    os.system("python CONVfer1v2.py")
     document = open('page3.png', 'rb')
-    bot.send_document(chat_id = call.from_user.id, document = document)
+    bot.send_photo(chat_id = call.from_user.id, photo = document)
     markup=types.ReplyKeyboardMarkup(resize_keyboard=True)
     item1=types.KeyboardButton("Возврат в главное меню")
     markup.add(item1)
@@ -237,10 +249,47 @@ def callback_inline4(call: CallbackQuery):
     print(f"date4: {global_date}")
     with open("datetime.txt", "w") as file:
         file.write(global_date.strftime("%d.%m.%Y"))
-    import Poiskdata
-    import CONVfer2
+    os.system("python CONVfer2v2.py")
     document = open('page4.png', 'rb')
-    bot.send_document(chat_id = call.from_user.id, document = document)
+    bot.send_photo(chat_id = call.from_user.id, photo = document)
+    markup=types.ReplyKeyboardMarkup(resize_keyboard=True)
+    item1=types.KeyboardButton("Возврат в главное меню")
+    markup.add(item1)
+    bot.send_message(chat_id=call.from_user.id, text = "Для возврата в меню выбора отчета нажмите ниже: ", reply_markup=markup)
+DATEFER2 = global_date
+@bot.callback_query_handler(
+    func=lambda call: call.data.startswith(calendar_5_callback.prefix)
+)
+def callback_inline5(call: CallbackQuery):
+    global global_date
+    name, action, year, month, day = call.data.split(calendar_5_callback.sep)
+    date5 = calendar.calendar_query_handler(
+        bot=bot, call=call, name=name, action=action, year=year, month=month, day=day
+    )
+    if action == "DAY":
+        bot.send_message(
+            chat_id=call.from_user.id,
+            text=f"Вы выбрали {date5.strftime('%d.%m.%Y')}",
+            reply_markup=ReplyKeyboardRemove(),
+        )
+        print(f"{calendar_5_callback}: Day: {date5.strftime('%d.%m.%Y')}")
+    elif action == "CANCEL":
+        bot.send_message(
+            chat_id=call.from_user.id,
+            text="Отмена",
+            reply_markup=ReplyKeyboardRemove(),
+        )
+        print(f"{calendar_5_callback}: Cancellation")
+        markup=types.ReplyKeyboardMarkup(resize_keyboard=True)
+        item1=types.KeyboardButton("Возврат в главное меню")
+        markup.add(item1)
+        bot.send_message(chat_id=call.from_user.id, text = "Для возврата в меню выбора отчета нажмите ниже: ", reply_markup=markup)
+    global_date = date5
+    print(f"date5: {global_date}")
+    with open("datetime.txt", "w") as file:
+        file.write(global_date.strftime("%d.%m.%Y"))
+    os.system("python CONVALLv2.py")
+    bot.send_media_group(chat_id = call.from_user.id, media = [telebot.types.InputMediaPhoto(open(photo, 'rb')) for photo in ['page1.png', 'page2.png', 'page3.png', 'page4.png']])
     markup=types.ReplyKeyboardMarkup(resize_keyboard=True)
     item1=types.KeyboardButton("Возврат в главное меню")
     markup.add(item1)
